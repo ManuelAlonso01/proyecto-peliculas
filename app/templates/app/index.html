@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'app/styles.css' %}">
+    <title>Listar Peliculas</title>
+</head>
+<body>
+    <body class="index-page"> <a href="subir/" class="btn-subir-container"> <button>Subir</button>
+    {% if movies %}
+    <div class="movies">
+        {% for movie in movies %}
+            <div class="movie-card">
+                <img src="{{ movie.poster }}" alt="{{ movie.title }}">
+                <h2>{{ movie.title }}</h2>
+                <p>{{ movie.descripcion }}</p>
+                <span>⭐ {{ movie.calificacion }}</span>
+            </div>
+        {% endfor %}
+    </div> {% else %}
+    <h2>No hay peliculas disponibles :(</h2>
+    {% endif %}
+</body>
+</html>
