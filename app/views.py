@@ -11,13 +11,15 @@ def subir(request):
     if request.method == 'POST':
         titulo = request.POST.get('titulo')
         img = request.POST.get('img')
+        duration = request.POST.get('duration')
         descripcion = request.POST.get('descripcion')
         nota = request.POST.get('nota')
         Movies.objects.create(
             title=titulo,
             poster=img,
+            duration_minutes = duration,
             descripcion=descripcion,
-            calificacion=nota
+            calificacion=nota,
         )
         return redirect('index')
     return render (request, 'app/subir.html')

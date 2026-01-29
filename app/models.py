@@ -5,8 +5,9 @@ from django.db import models
 class Movies(models.Model):
     title = models.CharField(max_length=100)
     poster = models.CharField(max_length=300)
+    duration_minutes = models.IntegerField()
     descripcion = models.CharField(max_length=500)
     calificacion = models.IntegerField()
-
+    
     def __str__(self):
         return self.title

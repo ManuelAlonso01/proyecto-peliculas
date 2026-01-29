@@ -178,7 +178,7 @@ body {
 
 /* Efecto de título decorativo (opcional, podrías añadir un h1 al HTML) */
 .datos::before {
-    content: "REGISTRO DE VÍCTIMAS";
+    content: "REGISTRO DE PELICULAS";
     position: absolute;
     top: -30px;
     left: 0;
