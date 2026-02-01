@@ -21,11 +21,13 @@
     {% if movies %}
     <div class="movies">
         {% for movie in movies %}
-            <div class="movie-card">
+            <div class="movie-card" style="position: relative;">
                 <img src="{{ movie.poster }}" alt="{{ movie.title }}">
                 <h2>{{ movie.title }}</h2>
                 <p>{{ movie.descripcion }}</p>
                 <span>⭐ {{ movie.calificacion }}</span>
+    
+                <a href="editar/{{ movie.id }}" class="main-link"></a>
             </div>
         {% endfor %}
     </div> {% else %}

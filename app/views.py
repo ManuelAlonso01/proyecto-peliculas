@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Movies
 from .tools import generar_resumen
 # Create your views here.
@@ -24,6 +24,24 @@ def subir(request):
         )
         return redirect('index')
     return render (request, 'app/subir.html')
+
+def editar(request, id_pelicula):
+    movie = get_object_or_404(Movies, id=id_pelicula)
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo')
+        img = request.POST.get('img')
+        duration = request.POST.get('duration')
+        descripcion = request.POST.get('descripcion')
+        nota = request.POST.get('nota')
+        Movies.objects.update(
+            title=titulo,
+            poster=img,
+            duration_minutes = duration,
+            descripcion=descripcion,
+            calificacion=nota, 
+        )
+        return redirect('index')
+    return render (request, 'app/editar.html', {'pelicula': movie})
     
 def resumen(request):
     data = generar_resumen()
