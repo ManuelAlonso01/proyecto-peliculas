@@ -28,18 +28,12 @@ def subir(request):
 def editar(request, id_pelicula):
     movie = get_object_or_404(Movies, id=id_pelicula)
     if request.method == 'POST':
-        titulo = request.POST.get('titulo')
-        img = request.POST.get('img')
-        duration = request.POST.get('duration')
-        descripcion = request.POST.get('descripcion')
-        nota = request.POST.get('nota')
-        Movies.objects.update(
-            title=titulo,
-            poster=img,
-            duration_minutes = duration,
-            descripcion=descripcion,
-            calificacion=nota, 
-        )
+        movie.title = request.POST.get('titulo')
+        movie.poster = request.POST.get('img')
+        movie.duration = request.POST.get('duration')
+        movie.descripcion = request.POST.get('descripcion')
+        movie.nota = request.POST.get('nota')
+        movie.save()
         return redirect('index')
     return render (request, 'app/editar.html', {'pelicula': movie})
     
