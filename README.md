@@ -54,7 +54,7 @@ Asegúrate de tener instalado Python en tu sistema. Las dependencias principales
 
 3. **Configurar la base de datos**:
    Asegurate de crear un archivo llamado ```db.sqlite3``` en la carpeta principal del proyecto.
-   
+
    Realiza las migraciones para preparar el esquema de la base de datos.
    ```bash
    python manage.py migrate
