@@ -68,8 +68,8 @@ def generar_resumen(request):
             f"{minutos_a_tiempo(pelicula_mas_corta.duration_minutes)}"
             if pelicula_mas_corta else 0
         ),
-        "top_mejores": [m.title for m in top_mejores],
-        "top_peores": [m.title for m in top_peores],
+        "top_mejores": ', '.join([m.title for m in top_mejores]),
+        "top_peores": ', '.join([m.title for m in top_peores]),
     }
 
     return data
