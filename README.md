@@ -90,5 +90,6 @@ El modelo principal ```Movies``` cuenta con los siguientes campos:
 
 ```/resumen/```: Vista de generación de resúmenes.
 
-
+## Echa un vistazo a la API de FilmManager
+[**FilmManagerApi**](https://github.com/ManuelAlonso01/FilmManagerApi)
 
